@@ -54,15 +54,7 @@ getLatestTweet().catch(console.error);
 
 
 function getTweetEmbedUrl(url) {
-    let tweetId = url.match(/status\/(\d+)/);
-    console.log(url);
-    if (!tweetId) {
-        console.warn("Invalid tweet URL");
-        return null;
-    }
-    tweetId = tweetId[1];
-    const embedUrl = `https://fixupx.com/guildhallabh/status/${tweetId}`;
-    return embedUrl;
+    return "https://fixupx.com" + url.slice(url.indexOf('/', 8)); // to skip http protocol, and trailing #m
 }
 
 async function getLatestTweetEmbed(userId = "guildhallabh") {

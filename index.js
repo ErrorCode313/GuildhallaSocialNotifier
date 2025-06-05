@@ -95,7 +95,7 @@ async function socialLoop(client) {
 
 function startSocialLoop(client) {
     socialLoop(client);
-    cron.schedule('* * * * *', () => socialLoop(client));
+    cron.schedule('* * * * *', () => socialLoop(client)); //every minute
     console.log('✅ Social feed loop scheduled (every minute)');
 }
 
