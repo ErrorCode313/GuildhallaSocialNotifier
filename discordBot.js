@@ -42,6 +42,14 @@ client.once('ready', async () => {
 client.on('interactionCreate', async (interaction) => {
     if (!interaction.isChatInputCommand() || interaction.commandName !== 'setsocialfeed') return;
 
+    const member = interaction.member;
+    if (!member.permissions.has('ManageGuild')) {
+        return interaction.reply({
+            content: '❌ You do not have permission to use this command.',
+            ephemeral: true,
+        });
+    }
+
     const channel = interaction.options.getChannel('channel');
     const role = interaction.options.getRole('role');
     if (!channel || channel.type !== ChannelType.GuildText) {
