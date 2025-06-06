@@ -54,7 +54,7 @@ getLatestTweet().catch(console.error);
 
 
 function getTweetEmbedUrl(url) {
-    return "https://fixupx.com" + url.slice(url.indexOf('/', 8)); // to skip http protocol, and trailing #m
+    return "https://fixupx.com" + url.slice(url.indexOf('/', 8), url.length - 2); // to skip http protocol, and trailing #m
 }
 
 async function getLatestTweetEmbed(userId = "guildhallabh") {
